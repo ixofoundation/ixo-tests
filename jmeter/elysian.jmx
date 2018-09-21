@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Smoke Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Smoke Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B31302C7B22646964446F63223A7B22646964223A226469643A736F763A32703139503137637236586176664D4A386874595353222C227075624B6579223A227A454C555251534E7A655348564C6D45364A597A51524E3547364C3265767464597738395242696D585748222C2263726564656E7469616C73223A5B5D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C223644433545443344383745343741464244433234434339303138343345374143423346453136334433333039323237393432333938384244313735313334363436333943343746324346323839363531314333324339463344363541443630354631374431413537343830304136393142343442344444364437394630433045225D2C2263726561746564223A22323031382D30392D31385430383A35303A33355A227D7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Insert Project" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.projects.insert(﻿{
+    &quot;autoApprove&quot; : [ 
+        &quot;SA&quot;
+    ],
+    &quot;title&quot; : &quot;Smoke Test API&apos;s&quot;,
+    &quot;ownerName&quot; : &quot;Brennon&quot;,
+    &quot;ownerEmail&quot; : &quot;bren@gmail.com&quot;,
+    &quot;shortDescription&quot; : &quot;Makes sure API&apos;s work&quot;,
+    &quot;longDescription&quot; : &quot;Make sure that we can run a set of our API&apos;s end to end&quot;,
+    &quot;impactAction&quot; : &quot;security&quot;,
+    &quot;projectLocation&quot; : &quot;ZA&quot;,
+    &quot;requiredClaims&quot; : 30,
+    &quot;sdgs&quot; : [ 
+        &quot;12&quot;, 
+        &quot;3&quot;, 
+        &quot;2&quot;
+    ],
+    &quot;templates&quot; : {
+        &quot;claim&quot; : {
+            &quot;schema&quot; : &quot;af175axcn6ejiuds0sh&quot;,
+            &quot;form&quot; : &quot;1v6v8a6woabjiuds3i9&quot;
+        }
+    },
+    &quot;evaluatorPayPerClaim&quot; : 0,
+    &quot;socialMedia&quot; : {
+        &quot;facebookLink&quot; : &quot;https://www.facebook.com/ixofoundation/&quot;,
+        &quot;instagramLink&quot; : &quot;&quot;,
+        &quot;twitterLink&quot; : &quot;&quot;,
+        &quot;webLink&quot; : &quot;https://ixo.foundation&quot;
+    },
+    &quot;serviceEndpoint&quot; : &quot;http://127.0.0.1:5000/&quot;,
+    &quot;imageLink&quot; : &quot;pc16l7yk62ejiudrox5&quot;,
+    &quot;founder&quot; : {
+        &quot;name&quot; : &quot;Bren&quot;,
+        &quot;email&quot; : &quot;bren@test.co.za&quot;,
+        &quot;countryOfOrigin&quot; : &quot;ZA&quot;,
+        &quot;shortDescription&quot; : &quot;primary description for founder&quot;,
+        &quot;websiteURL&quot; : &quot;www.jmeter.com&quot;,
+        &quot;logoLink&quot; : &quot;&quot;
+    },
+    &quot;txHash&quot; : &quot;d848ef60166f13d49d459cc4f2e56986d524a11c968f7cfb15b5d55fe9f43045&quot;,
+    &quot;_creator&quot; : &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,
+    &quot;_created&quot; : &quot;2018-06-05T12:35:02Z&quot;,
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;__v&quot; : 0
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Blockchain Create Project" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">api/blockchain/0x7B227061796C6F6164223A5B31362C2237423232363436313734363132323341374232323734363937343643363532323341323235343635373337343230353736313734363537323230373037323646364136353633373432323243323236463737364536353732344536313644363532323341323234343646364532323243323236463737364536353732343536443631363936433232334132323634364636453430363736443631363936433245363336463644323232433232373336383646373237343434363537333633373236393730373436393646364532323341323235303732364636413635363337343230363636463732323037373631373436353732323232433232364336463645363734343635373336333732363937303734363936463645323233413232373037323646364136353633373432303734364632303733363137363635323037373631373436353732323036363646373232303631373236353631373332303737363937343638323036343732364637353637363837343232324332323639364437303631363337343431363337343639364636453232334132323643363937343732363537333230364636363230373736313734363537323230373336313736363536343232324332323730373236463641363536333734344336463633363137343639364636453232334132323541343132323243323237323635373137353639373236353634343336433631363936443733323233413333333032433232373336343637373332323341354232323331333232323243323233333232324332323332323235443243323237343635364437303643363137343635373332323341374232323633364336313639364432323341374232323733363336383635364436313232334132323631363633313337333536313738363336453336363536413639373536343733333037333638323232433232363636463732364432323341323233313736333637363338363133363737364636313632364136393735363437333333363933393232374437443243323236353736363136433735363137343646373235303631373935303635373234333643363136393644323233413232333032323243323237333646363336393631364334443635363436393631323233413742323236363631363336353632364636463642344336393645364232323341323236383734373437303733334132463246373737373737324536363631363336353632364636463642324536333646364432463639373836463636364637353645363436313734363936463645324632323243323236393645373337343631363737323631364434433639364536423232334132323232324332323734373736393734373436353732344336393645364232323341323232323243323237373635363234433639364536423232334132323638373437343730373333413246324636393738364632453636364637353645363436313734363936463645323237443243323237333635373237363639363336353435364536343730364636393645373432323341323236383734373437303341324632463333333532453331333933323245333133383337324533313331333033413335333033303330324632323243323236393644363136373635344336393645364232323341323237303633333133363643333737393642333633323635364136393735363437323646373833353232324332323636364637353645363436353732323233413742323236453631364436353232334132323445363936333232324332323635364436313639364332323341323236453639363334303734363537333734324536333646324537413631323232433232363336463735364537343732373934463636344637323639363736393645323233413232354134313232324332323733363836463732373434343635373336333732363937303734363936463645323233413232373037323639364436313732373932303634363537333633373236393730373436393646364532303636364637323230363636463735364536343635373232323243323237373635363237333639373436353535353234433232334132323737373737373245373736313734363537323245363336463644323232433232364336463637364634433639364536423232334132323232374432433232363337323635363137343635363434463645323233413232333233303331333832443330333632443330333535343331333233413333333533413330333235413232324332323633373236353631373436353634343237393232334132323634363936343341373336463736334133323730333133393530333133373633373233363538363137363636344434413338363837343539353335333232374432433232373437383438363137333638323233413232363433383334333836353636333633303331333633363636333133333634333433393634333433353339363336333334363633323635333533363339333833363634333533323334363133313331363333393336333836363337363336363632333133353632333536343335333536363635333936363334333333303334333532323243323237333635364536343635373234343639363432323341323236343639363433413733364637363341333237303331333935303331333736333732333635383631373636363444344133383638373435393533353332323243323237303732364636413635363337343434363936343232334132323634363936343341363937383646334135323639363133343635363937413535364137383531333933323737373633393633343134313737373136353232324332323730373536323442363537393232334132323435353534433739363134423539373435363432343433383637363833353639373437393331373635313532373636413436364636453533343636363637363634333635343236343734353936313730363636323732373632323744225D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C223646303939393442463831423434343931444546304138303332313439304335454344364635413938463243423634353837363241424137323839363439434443373842364632454335454538444535463039393932363243324442314139373833333837394145354637433141414136413435334138443442333043433046225D2C2263726561746564223A22323031382D30392D31395431313A33323A33352E3735365A227D7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Insert Capability" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.capabilities.insert(﻿﻿{
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;capabilities&quot; : [ 
+        {
+            &quot;allow&quot; : [ 
+                &quot;did:sov:*&quot;
+            ],
+            &quot;capability&quot; : &quot;CreateProject&quot;,
+            &quot;template&quot; : &quot;projects&quot;,
+            &quot;validateKYC&quot; : false
+        }, 
+        {
+            &quot;allow&quot; : [ 
+                &quot;did:sov:*&quot;
+            ],
+            &quot;capability&quot; : &quot;CreateAgent&quot;,
+            &quot;template&quot; : &quot;agents&quot;,
+            &quot;validateKYC&quot; : false
+        }, 
+        {
+            &quot;allow&quot; : [ 
+                &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;, 
+                &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;
+            ],
+            &quot;capability&quot; : &quot;UpdateAgentStatus&quot;,
+            &quot;template&quot; : &quot;agents&quot;
+        }, 
+        {
+            &quot;allow&quot; : [
+            &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+            ],
+            &quot;capability&quot; : &quot;SubmitClaim&quot;,
+            &quot;template&quot; : &quot;claims&quot;
+        }, 
+        {
+            &quot;allow&quot; : [&quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;],
+            &quot;capability&quot; : &quot;EvaluateClaim&quot;,
+            &quot;template&quot; : &quot;evaluations&quot;
+        }, 
+        {
+            &quot;allow&quot; : [ 
+                &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+            ],
+            &quot;capability&quot; : &quot;ListClaims&quot;,
+            &quot;template&quot; : &quot;claims&quot;
+        }, 
+        {
+            &quot;allow&quot; : [ 
+                &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+            ],
+            &quot;capability&quot; : &quot;ListAgents&quot;,
+            &quot;template&quot; : &quot;agents&quot;
+        }, 
+        {
+            &quot;allow&quot; : [ 
+                &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;, 
+                &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+            ],
+            &quot;capability&quot; : &quot;UpdateProjectStatus&quot;,
+            &quot;template&quot; : &quot;projects&quot;
+        }
+    ],
+    &quot;__v&quot; : 0
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree/>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Insert Project Status" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.projectstatuses.insert(﻿﻿{
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;status&quot; : &quot;CREATED&quot;,
+    &quot;txHash&quot; : &quot;b67612abc48df467c8de8efb4e1cd5992fac46c5b40c9e32cdf3e03f992f46ec&quot;,
+    &quot;_creator&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;_created&quot; : &quot;2018-09-17T07:30:16.423Z&quot;,
+    &quot;__v&quot; : 0
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree/>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Insert Project Wallet" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.wallets.insert(﻿﻿﻿{
+    &quot;did&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;signKey&quot; : &quot;a85643e5e4ed290e20e9934b2a723b548c95ba81e29df2910a6dad7fb81b757a206e4b203e60ca2b2d815af2ceccf732&quot;,
+    &quot;verifyKey&quot; : &quot;EULyaKYtVBD8gh5ity1vQRvjFonSFfgfCeBdtYapfbrv&quot;,
+    &quot;__v&quot; : 0
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Project" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,&#xd;
+    &quot;method&quot;: &quot;createProject&quot;,&#xd;
+    &quot;id&quot;: 123,&#xd;
+    &quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;create_project&quot;&#xd;
+            },&#xd;
+			&quot;data&quot;: {&#xd;
+			&quot;title&quot;: &quot;Test Water project&quot;,&#xd;
+		        &quot;ownerName&quot;: &quot;Don&quot;,&#xd;
+		        &quot;ownerEmail&quot;: &quot;don@gmail.com&quot;,&#xd;
+		        &quot;shortDescription&quot;: &quot;Project for water&quot;,&#xd;
+		        &quot;longDescription&quot;: &quot;project to save water for areas with drought&quot;,&#xd;
+		        &quot;impactAction&quot;: &quot;litres of water saved&quot;,&#xd;
+		        &quot;projectLocation&quot;: &quot;ZA&quot;,&#xd;
+		        &quot;requiredClaims&quot;: 30,&#xd;
+		        &quot;sdgs&quot;: [&#xd;
+		          &quot;12&quot;,&#xd;
+		          &quot;3&quot;,&#xd;
+		          &quot;2&quot;&#xd;
+		        ],&#xd;
+		        &quot;templates&quot;: {&#xd;
+		          &quot;claim&quot;: {&#xd;
+		            &quot;schema&quot;: &quot;af175axcn6ejiuds0sh&quot;,&#xd;
+		            &quot;form&quot;: &quot;1v6v8a6woabjiuds3i9&quot;&#xd;
+		          }&#xd;
+		        },&#xd;
+		        &quot;evaluatorPayPerClaim&quot;: &quot;0&quot;,&#xd;
+		        &quot;socialMedia&quot;: {&#xd;
+		          &quot;facebookLink&quot;: &quot;https://www.facebook.com/ixofoundation/&quot;,&#xd;
+		          &quot;instagramLink&quot;: &quot;&quot;,&#xd;
+		          &quot;twitterLink&quot;: &quot;&quot;,&#xd;
+		          &quot;webLink&quot;: &quot;https://ixo.foundation&quot;&#xd;
+		        },&#xd;
+		        &quot;autoApprove&quot;: [&quot;SA&quot;],&#xd;
+		        &quot;serviceEndpoint&quot;: &quot;http://35.192.187.110:5000/&quot;,&#xd;
+		        &quot;imageLink&quot;: &quot;pc16l7yk62ejiudrox5&quot;,&#xd;
+		        &quot;founder&quot;: {&#xd;
+		          &quot;name&quot;: &quot;Nic&quot;,&#xd;
+		          &quot;email&quot;: &quot;nic@test.co.za&quot;,&#xd;
+		          &quot;countryOfOrigin&quot;: &quot;ZA&quot;,&#xd;
+		          &quot;shortDescription&quot;: &quot;primary description for founder&quot;,&#xd;
+		          &quot;websiteURL&quot;: &quot;www.water.com&quot;,&#xd;
+		          &quot;logoLink&quot;: &quot;&quot;&#xd;
+		        }&#xd;
+			}&#xd;
+        },&#xd;
+         &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2018-06-05T12:35:02Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;3E9619B7FF40AE217EEB7470C267913CBF861C73F4C21478D7BC7F82CFE3BFFD06D8731930423C9D39B4C1326234609B3F21F03CBB62C277CEEA32E04FD83807&quot;&#xd;
+            &#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">createProjectProjectDid</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">result.projectDid</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">&quot;&quot;</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Auto Approve Service Agent" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;jsonrpc&quot;:&quot;2.0&quot;, &#xd;
+	&quot;method&quot;:&quot;createAgent&quot;,&#xd;
+	&quot;id&quot;: 123,&#xd;
+	&quot;params&quot;: {&#xd;
+		&quot;payload&quot;: {&#xd;
+			&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;create_agent&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;name&quot;: &quot;Brennon&quot;,&#xd;
+            		 &quot;surname&quot;: &quot;Hampton&quot;,&#xd;
+            		 &quot;email&quot;: &quot;brennon@me.com&quot;,&#xd;
+            		 &quot;agentDid&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            		 &quot;role&quot;: &quot;SA&quot;}&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;B85D10D477B8891B005094D5D6FF9EE34510F3A7270D1FD8C89B70BC7B6EDB7E7EDC4DA41ACCAC1FC4330FA4CB936FF7BC2959088CBC2C700F678B0830B8A506&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Project to PENDING" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;jsonrpc&quot;:&quot;2.0&quot;, &#xd;
+	&quot;method&quot;:&quot;updateProjectStatus&quot;,&#xd;
+	&quot;id&quot;: 123,&#xd;
+	&quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;project_status&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;status&quot;: &quot;PENDING&quot;,&#xd;
+            		 &quot;txnID&quot;: &quot;0xe14c19fac6e58c85042992fc2fa4619acc73ec54d5c90b8cefbb1e2525fa666f&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;9C1370352D42A1602B7EEE165E986546C54679FD7DDDF3F2C4F46B365D7D400939B3B1B176A47D037E4115DE14CB2905D91AF4027EE8B6BB87D219350EE54B04&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Project to STARTED" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;jsonrpc&quot;:&quot;2.0&quot;, &#xd;
+	&quot;method&quot;:&quot;updateProjectStatus&quot;,&#xd;
+	&quot;id&quot;: 123,&#xd;
+	&quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;project_status&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;status&quot;: &quot;STARTED&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;6848A4DCCC421630C8C4CFD4A77191D9EC5675AEE857C03E98442951C83801B4E51510DA824B0BA40A9AF1373996D40A0782466B42BD21353896D95EA9E11600&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pause for FUNDED" enabled="true">
+            <stringProp name="ConstantTimer.delay">4000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Submit Claim" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;jsonrpc&quot;: &quot;2.0&quot;, &#xd;
+    &quot;method&quot;: &quot;submitClaim&quot;, &#xd;
+    &quot;id&quot;: 3, &#xd;
+    &quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;submit_claim&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;name&quot;: &quot;claim name&quot;,&#xd;
+            		 &quot;claimId&quot;:  &quot;1&quot;,&#xd;
+            		 &quot;type&quot;: &quot;delivery&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;F5270AFA9C3825AC58507F1E013957C2A8F86163C60EB0567A7A3ADF57086E9F6D786DCDC72DE035A54EA1C4C321AAF8B882B0CB7255A8AD17AD7F51668A1109&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Tx Hash Extractor" enabled="true">
+            <stringProp name="TestPlan.comments">get TXN HASH</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">claimTxHash</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">result.txHash</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Evaluate Claim" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;jsonrpc&quot;: &quot;2.0&quot;, &#xd;
+    &quot;method&quot;: &quot;evaluateClaim&quot;, &#xd;
+    &quot;id&quot;: 3, &#xd;
+    &quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;evaluate_claim&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;status&quot;: &quot;1&quot;,&#xd;
+            		 &quot;claimId&quot;:  &quot;1&quot;,&#xd;
+            		 &quot;version&quot;: 0&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;CE5BAD74E2339E403859BC013519261F73D8AA47AC5A9B2B6E124F9CBAD5E471210349CFE1C632DF19F24BF8DA2BAACEC62A18112CAAFEC7610C728D27BED80A&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Project to STOPPED" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;jsonrpc&quot;:&quot;2.0&quot;, &#xd;
+	&quot;method&quot;:&quot;updateProjectStatus&quot;,&#xd;
+	&quot;id&quot;: 123,&#xd;
+	&quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;project_status&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;status&quot;: &quot;STOPPED&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;13E4D866A84477E12EC55BE00FA19FD030834AFE262B0F685DA237988143D525D14D76B690F3F14B574A967574C0EAF59D8B4FA8FAD52202DA2DB46E9F021607&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="List Project Agents" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;jsonrpc&quot;: &quot;2.0&quot;, &#xd;
+    &quot;method&quot;: &quot;listAgents&quot;, &#xd;
+    &quot;id&quot;: 3, &#xd;
+    &quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;list_agent&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;}&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2018-06-07T14:11:21Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;C355B9A8E57F7719FB1733C88D4EDAD6F0CBCA64682B3270F55DE92EFB16F14E184C963DAD40C99B516A83CE592F2B4375A877AF411C3C9CE40CE62BF73B2603&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid" enabled="true">
+            <stringProp name="JSON_PATH">$.result[0].agentDid</stringProp>
+            <stringProp name="EXPECTED_VALUE">did:sov:2p19P17cr6XavfMJ8htYSS</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion status" enabled="true">
+            <stringProp name="JSON_PATH">$.result[0].currentStatus.status</stringProp>
+            <stringProp name="EXPECTED_VALUE">1</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="List Project Claims" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;jsonrpc&quot;: &quot;2.0&quot;, &#xd;
+    &quot;method&quot;: &quot;listClaims&quot;, &#xd;
+    &quot;id&quot;: 3, &#xd;
+    &quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;list_claim&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;}&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2018-06-07T14:11:21Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;C355B9A8E57F7719FB1733C88D4EDAD6F0CBCA64682B3270F55DE92EFB16F14E184C963DAD40C99B516A83CE592F2B4375A877AF411C3C9CE40CE62BF73B2603&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid" enabled="true">
+            <stringProp name="JSON_PATH">$.result[0].projectDid</stringProp>
+            <stringProp name="EXPECTED_VALUE">did:ixo:Ria4eizUjxQ92wv9cAAwqe</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Agent exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.agents.findOne({
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;agentDid&quot; : &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Agent Status exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.agentstatuses.findOne({
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;agentDid&quot; : &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,
+    &quot;status&quot; : &quot;1&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Claims exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.claims.findOne({
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;_creator&quot; : &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Evaluate Claims exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.evaluateclaims.findOne({
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;_creator&quot; : &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Project Status STOPPED" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.projectstatuses.findOne({
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;status&quot; : &quot;STOPPED&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Project exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.projects.findOne({
+    &quot;projectDid&quot; : &quot;${createProjectProjectDid}&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Capabilities exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.capabilities.findOne({
+    &quot;projectDid&quot; : &quot;${createProjectProjectDid}&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Wallet exists" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.wallets.findOne({
+    &quot;did&quot; : &quot;${createProjectProjectDid}&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="MongoDB Check Project Status CREATED" enabled="true">
+          <stringProp name="database">elysian</stringProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="source">db</stringProp>
+          <stringProp name="username"></stringProp>
+          <stringProp name="script">db.projectstatuses.findOne({
+    &quot;projectDid&quot; : &quot;${createProjectProjectDid}&quot;,
+    &quot;status&quot; : &quot;CREATED&quot;
+});</stringProp>
+        </MongoScriptSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3548">ok</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">5</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check if Ledgister" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">api/did/getByDid/did:sov:2p19P17cr6XavfMJ8htYSS</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
+            <stringProp name="JSON_PATH">$.did</stringProp>
+            <stringProp name="EXPECTED_VALUE">did:sov:2p19P17cr6XavfMJ8htYSS</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">text/html</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <MongoSourceElement guiclass="TestBeanGUI" testclass="MongoSourceElement" testname="MongoDB Source Config (DEPRECATED)" enabled="true">
+        <boolProp name="autoConnectRetry">false</boolProp>
+        <intProp name="connectTimeout">0</intProp>
+        <stringProp name="connection">127.0.0.1</stringProp>
+        <intProp name="connectionsPerHost">1</intProp>
+        <boolProp name="continueOnInsertError">false</boolProp>
+        <boolProp name="fsync">true</boolProp>
+        <longProp name="maxAutoConnectRetryTime">0</longProp>
+        <intProp name="maxWaitTime">120000</intProp>
+        <boolProp name="safe">true</boolProp>
+        <boolProp name="socketKeepAlive">false</boolProp>
+        <intProp name="socketTimeout">0</intProp>
+        <stringProp name="source">db</stringProp>
+        <intProp name="threadsAllowedToBlockForConnectionMultiplier">5</intProp>
+        <boolProp name="waitForJournaling">true</boolProp>
+        <intProp name="writeOperationNumberOfServers">0</intProp>
+        <intProp name="writeOperationTimeout">0</intProp>
+      </MongoSourceElement>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
