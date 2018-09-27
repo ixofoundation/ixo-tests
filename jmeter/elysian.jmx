@@ -44,7 +44,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister did:ixo:CisFbsREpMspEr21QzonnU" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add KYC creds to did:sov:2p19P17cr6XavfMJ8htYSS" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -52,7 +52,45 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B31302C7B22646964446F63223A7B22646964223A226469643A736F763A4369734662735245704D737045723231517A6F6E6E55222C227075624B6579223A2237505976445153456E704C35585762585478336F5268626969325963733446504C4A75794238476453417737222C2263726564656E7469616C73223A5B5D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C224435383941423531343243413631384236314435453032393133364238444144384343344342363938313032333234323736353531313630334543353536393030414335353846433044454436443836354532393141434145324346443544343337463446303133353032393744334138353445423534303641313444363031225D2C2263726561746564223A22323031382D30392D32315430393A35303A33325A227D7D</stringProp>
+          <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B32342C7B2263726564656E7469616C223A7B2274797065223A5B2243726564656E7469616C222C2250726F6F664F664B5943225D2C22697373756572223A226469643A736F763A32703139503137637236586176664D4A386874595353222C22697373756564223A22323031382D30392D32365431373A32373A31382E3139305A222C22636C61696D223A7B226964223A226469643A736F763A32703139503137637236586176664D4A386874595353222C224B594356616C696461746564223A747275657D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C224144464542373641363744343037453333423231454231353634353738344645334230323736304233383039383634423835443938323732464443303043304530313935453134393743383842353742393038313231313146463436454344413543394138344139443142453339374345323238374435423732434538383043225D2C2263726561746564223A22323031382D30392D32365431373A32373A31382E3139315A227D7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister did:sov:Va2P49kEjqQEJ8idaAZEKn" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B31302C7B22646964446F63223A7B22646964223A226469643A736F763A5661325034396B456A7151454A38696461415A454B6E222C227075624B6579223A224761386E6B6B706D59654A355178473542487443754841455A6D703559524A68735848775564535546376F4E222C2263726564656E7469616C73223A5B5D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C223235384541424642364446453737304334423441394445433830383338303542323339453945454535343637414245333133303530444531313341433430334642393433413544363232433639323134454431393737443044333142354639373446453337383745423441444230433743463841394432454344303642333044225D2C2263726561746564223A22323031382D30392D32315430393A35303A33325A227D7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add KYC creds to did:sov:Va2P49kEjqQEJ8idaAZEKn" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B32342C7B2263726564656E7469616C223A7B2274797065223A5B2243726564656E7469616C222C2250726F6F664F664B5943225D2C22697373756572223A226469643A736F763A32703139503137637236586176664D4A386874595353222C22697373756564223A22323031382D30392D32365431373A32373A31382E3139305A222C22636C61696D223A7B226964223A226469643A736F763A5661325034396B456A7151454A38696461415A454B6E222C224B594356616C696461746564223A747275657D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C223144453835353136383431454335303031454534444133353243464241384243383344384636303345413031364234443135333732343332354445463246343534413032414431383531364143323039303037354130454441463832344633303236373336393631364138303533383744453643373739463634304545333030225D2C2263726561746564223A22323031382D30392D32365431373A32373A31382E3139315A227D7D</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -157,7 +195,7 @@
             ],
             &quot;capability&quot; : &quot;CreateAgent&quot;,
             &quot;template&quot; : &quot;agents&quot;,
-            &quot;validateKYC&quot; : false
+            &quot;validateKYC&quot; : true
         }, 
         {
             &quot;allow&quot; : [ 
@@ -317,7 +355,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="false">
             <stringProp name="JSONPostProcessor.referenceNames">createProjectProjectDid</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">result.projectDid</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
@@ -396,14 +434,14 @@
             		 &quot;name&quot;: &quot;Brennon&quot;,&#xd;
             		 &quot;surname&quot;: &quot;Hampton&quot;,&#xd;
             		 &quot;email&quot;: &quot;brennon@me.com&quot;,&#xd;
-            		 &quot;agentDid&quot;: &quot;did:sov:CisFbsREpMspEr21QzonnU&quot;,&#xd;
+            		 &quot;agentDid&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
             		 &quot;role&quot;: &quot;EA&quot;}&#xd;
         },&#xd;
         &quot;signature&quot;: {&#xd;
             &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
             &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
-            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
-            &quot;signatureValue&quot;: &quot;57BAB5BB7C1EF1935CC7E54E7835627446CCAFEAEBC222E7F9DEB49E109DF8B4B4C547885C06C9BAE06D7EFEBD81B20338791A957CE9904C62985CE502C8C804&quot;&#xd;
+            &quot;creator&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;95EA4D46335517271EE71B171C5958A433BFF441052BDA594AE47A9400196625BEC60E24C76B62100434C2BB8EB3536D1F269A7B89DB91D6C2F2882D4C11DE00&quot;&#xd;
         }&#xd;
     }&#xd;
 }</stringProp>
@@ -520,7 +558,7 @@
         </HTTPSamplerProxy>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pause for FUNDED" enabled="true">
-            <stringProp name="ConstantTimer.delay">6000</stringProp>
+            <stringProp name="ConstantTimer.delay">8000</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
@@ -736,9 +774,9 @@
             <boolProp name="ISREGEX">true</boolProp>
           </JSONPathAssertion>
           <hashTree/>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid did:sov:CisFbsREpMspEr21QzonnU" enabled="true">
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid did:sov:Va2P49kEjqQEJ8idaAZEKn" enabled="true">
             <stringProp name="JSON_PATH">$.result[0].agentDid</stringProp>
-            <stringProp name="EXPECTED_VALUE">did:sov:CisFbsREpMspEr21QzonnU</stringProp>
+            <stringProp name="EXPECTED_VALUE">did:sov:Va2P49kEjqQEJ8idaAZEKn</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
