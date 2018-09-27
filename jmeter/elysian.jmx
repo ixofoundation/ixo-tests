@@ -25,7 +25,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister did:sov:2p19P17cr6XavfMJ8htYSS" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -34,6 +34,25 @@
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B31302C7B22646964446F63223A7B22646964223A226469643A736F763A32703139503137637236586176664D4A386874595353222C227075624B6579223A227A454C555251534E7A655348564C6D45364A597A51524E3547364C3265767464597738395242696D585748222C2263726564656E7469616C73223A5B5D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C223644433545443344383745343741464244433234434339303138343345374143423346453136334433333039323237393432333938384244313735313334363436333943343746324346323839363531314333324339463344363541443630354631374431413537343830304136393142343442344444364437394630433045225D2C2263726561746564223A22323031382D30392D31385430383A35303A33355A227D7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister did:ixo:CisFbsREpMspEr21QzonnU" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/blockchain/0x7B227061796C6F6164223A5B31302C7B22646964446F63223A7B22646964223A226469643A736F763A4369734662735245704D737045723231517A6F6E6E55222C227075624B6579223A2237505976445153456E704C35585762585478336F5268626969325963733446504C4A75794238476453417737222C2263726564656E7469616C73223A5B5D7D7D5D2C227369676E6174757265223A7B227369676E617475726556616C7565223A5B312C224435383941423531343243413631384236314435453032393133364238444144384343344342363938313032333234323736353531313630334543353536393030414335353846433044454436443836354532393141434145324346443544343337463446303133353032393744334138353445423534303641313444363031225D2C2263726561746564223A22323031382D30392D32315430393A35303A33325A227D7D</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -97,7 +116,7 @@
 });</stringProp>
         </MongoScriptSampler>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Blockchain Create Project" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Block-Sync Create Project" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -357,6 +376,56 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Evaluator Agent" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;jsonrpc&quot;:&quot;2.0&quot;, &#xd;
+	&quot;method&quot;:&quot;createAgent&quot;,&#xd;
+	&quot;id&quot;: 123,&#xd;
+	&quot;params&quot;: {&#xd;
+		&quot;payload&quot;: {&#xd;
+			&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;create_agent&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;name&quot;: &quot;Brennon&quot;,&#xd;
+            		 &quot;surname&quot;: &quot;Hampton&quot;,&#xd;
+            		 &quot;email&quot;: &quot;brennon@me.com&quot;,&#xd;
+            		 &quot;agentDid&quot;: &quot;did:sov:CisFbsREpMspEr21QzonnU&quot;,&#xd;
+            		 &quot;role&quot;: &quot;EA&quot;}&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;57BAB5BB7C1EF1935CC7E54E7835627446CCAFEAEBC222E7F9DEB49E109DF8B4B4C547885C06C9BAE06D7EFEBD81B20338791A957CE9904C62985CE502C8C804&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Project to PENDING" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -451,7 +520,7 @@
         </HTTPSamplerProxy>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pause for FUNDED" enabled="true">
-            <stringProp name="ConstantTimer.delay">4000</stringProp>
+            <stringProp name="ConstantTimer.delay">6000</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
@@ -649,8 +718,8 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid" enabled="true">
-            <stringProp name="JSON_PATH">$.result[0].agentDid</stringProp>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid did:sov:2p19P17cr6XavfMJ8htYSS" enabled="true">
+            <stringProp name="JSON_PATH">$.result[1].agentDid</stringProp>
             <stringProp name="EXPECTED_VALUE">did:sov:2p19P17cr6XavfMJ8htYSS</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
@@ -658,9 +727,27 @@
             <boolProp name="ISREGEX">true</boolProp>
           </JSONPathAssertion>
           <hashTree/>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion status" enabled="true">
-            <stringProp name="JSON_PATH">$.result[0].currentStatus.status</stringProp>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion status 1" enabled="true">
+            <stringProp name="JSON_PATH">$.result[1].currentStatus.status</stringProp>
             <stringProp name="EXPECTED_VALUE">1</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion agentDid did:sov:CisFbsREpMspEr21QzonnU" enabled="true">
+            <stringProp name="JSON_PATH">$.result[0].agentDid</stringProp>
+            <stringProp name="EXPECTED_VALUE">did:sov:CisFbsREpMspEr21QzonnU</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion status 0" enabled="true">
+            <stringProp name="JSON_PATH">$.result[0].currentStatus.status</stringProp>
+            <stringProp name="EXPECTED_VALUE">0</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
