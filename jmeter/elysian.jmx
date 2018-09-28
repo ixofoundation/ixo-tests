@@ -355,7 +355,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="false">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">createProjectProjectDid</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">result.projectDid</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
@@ -1065,6 +1065,15 @@
           <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
             <stringProp name="JSON_PATH">$.did</stringProp>
             <stringProp name="EXPECTED_VALUE">did:sov:2p19P17cr6XavfMJ8htYSS</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
+            <stringProp name="JSON_PATH">$.credentials[0].claim.KYCValidated</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
