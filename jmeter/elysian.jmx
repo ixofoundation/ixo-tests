@@ -206,14 +206,12 @@
             &quot;template&quot; : &quot;agents&quot;
         }, 
         {
-            &quot;allow&quot; : [
-            &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
-            ],
+            &quot;allow&quot; : [],
             &quot;capability&quot; : &quot;SubmitClaim&quot;,
             &quot;template&quot; : &quot;claims&quot;
         }, 
         {
-            &quot;allow&quot; : [&quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;],
+            &quot;allow&quot; : [],
             &quot;capability&quot; : &quot;EvaluateClaim&quot;,
             &quot;template&quot; : &quot;evaluations&quot;
         }, 
@@ -442,6 +440,55 @@
             &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
             &quot;creator&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
             &quot;signatureValue&quot;: &quot;95EA4D46335517271EE71B171C5958A433BFF441052BDA594AE47A9400196625BEC60E24C76B62100434C2BB8EB3536D1F269A7B89DB91D6C2F2882D4C11DE00&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">5000</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/request</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Approve Evaluator Agent Status" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;jsonrpc&quot;:&quot;2.0&quot;, &#xd;
+	&quot;method&quot;:&quot;updateAgentStatus&quot;,&#xd;
+	&quot;id&quot;: 123,&#xd;
+	&quot;params&quot;: {&#xd;
+        &quot;payload&quot;: {&#xd;
+            &quot;template&quot;: {&#xd;
+                &quot;name&quot;: &quot;agent_status&quot;&#xd;
+            },&#xd;
+            &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
+            		 &quot;status&quot;: &quot;1&quot;,&#xd;
+            		 &quot;agentDid&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
+            		 &quot;role&quot;: &quot;EA&quot;,&#xd;
+            		 &quot;version&quot;: 1&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;signature&quot;: {&#xd;
+            &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
+            &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
+            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;89DC693716301E54EC39DAA90102061E7FF8ED1A3F090393F2B597985FFC56FE482F302215C743FA5D8B314CB691CD35C47D67CABEE0F1008C8A58C15D778C07&quot;&#xd;
         }&#xd;
     }&#xd;
 }</stringProp>
@@ -812,7 +859,7 @@
           <hashTree/>
           <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion status 0" enabled="true">
             <stringProp name="JSON_PATH">$.result[0].currentStatus.status</stringProp>
-            <stringProp name="EXPECTED_VALUE">0</stringProp>
+            <stringProp name="EXPECTED_VALUE">1</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
