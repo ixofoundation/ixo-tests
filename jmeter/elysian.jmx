@@ -213,7 +213,7 @@
             &quot;template&quot; : &quot;claims&quot;
         }, 
         {
-            &quot;allow&quot; : [&quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;],
+            &quot;allow&quot; : [&quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;],
             &quot;capability&quot; : &quot;EvaluateClaim&quot;,
             &quot;template&quot; : &quot;evaluations&quot;
         }, 
@@ -511,6 +511,33 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition"></stringProp>
+        </WhileController>
+        <hashTree>
+          <MongoScriptSampler guiclass="TestBeanGUI" testclass="MongoScriptSampler" testname="Loop till FUNDED" enabled="true">
+            <stringProp name="database">elysian</stringProp>
+            <stringProp name="password"></stringProp>
+            <stringProp name="source">db</stringProp>
+            <stringProp name="username"></stringProp>
+            <stringProp name="script">db.projectstatuses.findOne({
+    &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
+    &quot;status&quot; : &quot;FUNDED&quot;
+});</stringProp>
+          </MongoScriptSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="3548">ok</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">5</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Project to STARTED" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -642,8 +669,8 @@
         &quot;signature&quot;: {&#xd;
             &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
             &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
-            &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
-            &quot;signatureValue&quot;: &quot;CE5BAD74E2339E403859BC013519261F73D8AA47AC5A9B2B6E124F9CBAD5E471210349CFE1C632DF19F24BF8DA2BAACEC62A18112CAAFEC7610C728D27BED80A&quot;&#xd;
+            &quot;creator&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
+            &quot;signatureValue&quot;: &quot;5E7E3D75AA7D9830BDED456090E45629657CA2FEAD88B947907225F90C6375D952F25E22D315AD84C046F02C83C3077E64EF1CC2C20794ACB207AB4E94DB4A07&quot;&#xd;
         }&#xd;
     }&#xd;
 }</stringProp>
@@ -921,7 +948,7 @@
           <stringProp name="username"></stringProp>
           <stringProp name="script">db.evaluateclaims.findOne({
     &quot;projectDid&quot; : &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,
-    &quot;_creator&quot; : &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;
+    &quot;_creator&quot; : &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;
 });</stringProp>
         </MongoScriptSampler>
         <hashTree>
