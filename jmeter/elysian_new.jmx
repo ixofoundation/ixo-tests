@@ -25,7 +25,11 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister did:sov:2p19P17cr6XavfMJ8htYSS" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+          <stringProp name="ConstantTimer.delay">5000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ledgister did:sov:2p19P17cr6XavfMJ8htYSS" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -63,11 +67,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
-          <stringProp name="ConstantTimer.delay">1500</stringProp>
-        </ConstantTimer>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add KYC creds to did:sov:2p19P17cr6XavfMJ8htYSS" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add KYC creds to did:sov:2p19P17cr6XavfMJ8htYSS" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -87,8 +87,15 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add KYC creds to did:sov:Va2P49kEjqQEJ8idaAZEKn" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
@@ -357,7 +364,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="false">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Project DID extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">createProjectProjectDid</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">result.projectDid</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
@@ -485,14 +492,14 @@
             		 &quot;status&quot;: &quot;1&quot;,&#xd;
             		 &quot;agentDid&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
             		 &quot;role&quot;: &quot;EA&quot;,&#xd;
-            		 &quot;version&quot;: &quot;1&quot;&#xd;
+            		 &quot;version&quot;: 1&#xd;
             }&#xd;
         },&#xd;
         &quot;signature&quot;: {&#xd;
             &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
             &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
             &quot;creator&quot;: &quot;did:sov:2p19P17cr6XavfMJ8htYSS&quot;,&#xd;
-            &quot;signatureValue&quot;: &quot;BOv0VjrnYtt0MZYFCjBER+5dQS4AKLEWHvuuHh7xk9x8IR+vTfDBpVZ5yFM6zJBI6f6QRNjlltSydrpgeorfDw==&quot;&#xd;
+            &quot;signatureValue&quot;: &quot;idxpNxYwHlTsOdqpAQIGHn/47Ro/CQOT8rWXmF/8Vv5ILzAiFcdD+l2LMUy2kc01xH1nyr7g8QCMiljBXXeMBw==&quot;&#xd;
         }&#xd;
     }&#xd;
 }</stringProp>
@@ -635,7 +642,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pause for FUNDED" enabled="true">
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pause for FUNDED" enabled="false">
             <stringProp name="ConstantTimer.delay">8000</stringProp>
           </ConstantTimer>
           <hashTree/>
@@ -713,15 +720,15 @@
             },&#xd;
             &quot;data&quot;: {&quot;projectDid&quot;: &quot;did:ixo:Ria4eizUjxQ92wv9cAAwqe&quot;,&#xd;
             		 &quot;status&quot;: &quot;1&quot;,&#xd;
-            		 &quot;claimId&quot;:  &quot;${claimTxHash}&quot;,&#xd;
-            		 &quot;version&quot;: &quot;0&quot;&#xd;
+            		 &quot;claimId&quot;:  &quot;1&quot;,&#xd;
+            		 &quot;version&quot;: 0&#xd;
             }&#xd;
         },&#xd;
         &quot;signature&quot;: {&#xd;
             &quot;type&quot;: &quot;ed25519-sha-256&quot;,&#xd;
             &quot;created&quot;: &quot;2016-02-08T16:02:20Z&quot;, &#xd;
             &quot;creator&quot;: &quot;did:sov:Va2P49kEjqQEJ8idaAZEKn&quot;,&#xd;
-            &quot;signatureValue&quot;: &quot;2FG8w4I8R5T6ohDi0uAwDIDmIMG2gC+0Bz/bkR+HObO9czxdugVwIeJ0J7Uiv32TJGfyOeeENU4XXS5JLXEVCg==&quot;&#xd;
+            &quot;signatureValue&quot;: &quot;Xn49dap9mDC97UVgkORWKWV8ov6tiLlHkHIl+QxjddlS8l4i0xWthMBG8CyDwwd+ZO8cwsIHlKyyB6tOlNtKBw==&quot;&#xd;
         }&#xd;
     }&#xd;
 }</stringProp>
